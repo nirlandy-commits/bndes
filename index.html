@@ -337,7 +337,7 @@
     <div class="composer" id="composer">
       <div class="composer-row">
         <div class="field">
-          <textarea id="q-input" rows="1" maxlength="140" placeholder="as cidades brasileiras estivessem prontas pra mudança do clima?"></textarea>
+          <textarea id="q-input" rows="1" maxlength="140" placeholder="eu quiser empreender?"></textarea>
         </div>
       </div>
       <div class="composer-foot">
@@ -476,13 +476,13 @@ const seedPerguntas = [
 ];
 
 const temas = [
-  {nome:"O Brasil ainda inventa alguma coisa, ou só importa tudo?", tag:"Inovação", bg:"var(--laranja)", fg:"#000",
+  {nome:"O que acontece se eu quiser criar tecnologia brasileira?", tag:"Inovação", bg:"var(--laranja)", fg:"#000",
    icn:'<svg class="icn" viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.4c.6.55 1 1.35 1 2.1V16h6v-.5c0-.75.4-1.55 1-2.1A6 6 0 0 0 12 3Z" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
    fatos:[
     "Nova Indústria Brasil: R$ 220 bilhões já aprovados até meados de 2026, com meta de R$ 300 bilhões até o fim do ano — inovação, digitalização, exportação.",
     "Financiamento à inovação em fármacos praticamente dobrou entre 2023 e 2025, em relação aos seis anos anteriores somados."
   ]},
-  {nome:"Vai sobrar planeta pra gente?", tag:"Clima", bg:"var(--verde)", fg:"#000",
+  {nome:"O que acontece se a economia for mais sustentável?", tag:"Clima", bg:"var(--verde)", fg:"#000",
    icn:'<svg class="icn" viewBox="0 0 24 24" fill="none"><path d="M6.5 17a4 4 0 1 1 .9-7.9A5.5 5.5 0 0 1 17.9 10 3.6 3.6 0 0 1 17 17H6.5Z" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>',
    fatos:[
     "Fundo Amazônia (gerido pelo BNDES): R$ 2 bilhões aprovados só em 2025.",
@@ -490,19 +490,19 @@ const temas = [
     "Energia eólica: R$ 1,54 bilhão contratados em 2025, com prazos que passam de 23 anos.",
     "Orçamento do Fundo Clima pra 2026 mais que dobrou: de R$ 11,2 bi pra R$ 27 bi."
   ]},
-  {nome:"As coisas que eu uso todo dia vieram de onde?", tag:"Infraestrutura", bg:"#fff", fg:"var(--azul)", border:"2px solid var(--azul)",
+  {nome:"O que acontece se a infraestrutura chegar pra quem precisa?", tag:"Infraestrutura", bg:"#fff", fg:"var(--azul)", border:"2px solid var(--azul)",
    icn:'<svg class="icn" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6" stroke="#0530CC" stroke-width="1.6" stroke-linejoin="round"/></svg>',
    fatos:[
     "O BNDES estrutura concessões de rodovias, saneamento, transporte e mobilidade urbana — como a concessão da Nova Dutra, feita sem aumentar gastos públicos.",
     "Municípios que usam financiamento do BNDES pra infraestrutura mostram efeito econômico positivo comprovado, comparado aos que não usam."
   ]},
-  {nome:"Um filme feito aqui consegue chegar no mundo todo?", tag:"Cultura", bg:"var(--laranja-escuro)", fg:"#000",
+  {nome:"O que acontece se a cultura brasileira ganhar o mundo?", tag:"Cultura", bg:"var(--laranja-escuro)", fg:"#000",
    icn:'<svg class="icn" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v13H4V4Z" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 17l4-16M20 17l-4-16" stroke="#000" stroke-width="1.6"/></svg>',
    fatos:[
     "R$ 400 milhões retomados pelo Fundo Setorial do Audiovisual (FSA) pra financiar o cinema brasileiro, depois de anos de programa parado.",
     "Edital de Cinema 2025: R$ 15 milhões pra 25 longas-metragens de produtoras de todas as regiões do país, com estreia prevista até o fim de 2026."
   ]},
-  {nome:"Vou conseguir montar algo meu, ou só sobrevivo de bico?", tag:"Pequenos negócios", bg:"#fff", fg:"var(--laranja-escuro)", border:"2px solid var(--laranja-escuro)",
+  {nome:"O que acontece se eu quiser empreender?", tag:"Pequenos negócios", bg:"#fff", fg:"var(--laranja-escuro)", border:"2px solid var(--laranja-escuro)",
    icn:'<svg class="icn" viewBox="0 0 24 24" fill="none"><path d="M3 9l1.5-5h15L21 9M4 9v10h16V9M4 9h16M10 13v3h4v-3" stroke="#EE7526" stroke-width="1.6" stroke-linejoin="round"/></svg>',
    fatos:[
     "Metade de tudo que o BNDES desembolsa hoje vai para micro, pequenas e médias empresas — o tipo de negócio que esse público mais tenta abrir, muitas vezes por necessidade, não só por ambição.",
@@ -510,7 +510,7 @@ const temas = [
     "Exemplos reais: Central da Visão (cirurgia oftalmológica mais acessível), Trampay, umgrauemeio, naPorta.",
     "Resultado medido: alta de 105% na massa salarial das startups apoiadas — não é só ideia bonita, virou emprego de verdade."
   ]},
-  {nome:"Quando dá ruim de verdade, alguém aparece?", tag:"Apoio e proteção", bg:"var(--preto)", fg:"#fff",
+  {nome:"O que acontece se o Brasil estiver pronto pra qualquer imprevisto?", tag:"Apoio e proteção", bg:"var(--preto)", fg:"#fff",
    icn:'<svg class="icn" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>',
    fatos:[
     "Enchentes do RS (2024): linhas emergenciais, suspensão de parcelas, garantias — cobertura de mais de 53% do público atingido.",
@@ -519,27 +519,27 @@ const temas = [
 ];
 
 const destaques = [
-  {cat:"Pequenos negócios", texto:"Vou conseguir montar algo meu, ou só sobrevivo de bico?", bullets:[
+  {cat:"Pequenos negócios", texto:"O que acontece se eu quiser empreender?", bullets:[
     "Metade de tudo que o BNDES desembolsa hoje vai para micro, pequenas e médias empresas — o tipo de negócio que esse público mais tenta abrir, muitas vezes por necessidade, não só por ambição.",
     "BNDES Garagem: aceleração gratuita de startups de impacto, mais de 300 apoiadas desde 2018, com critério explícito de diversidade regional, racial e de gênero — com seleção acontecendo em Belém (PA) e Goiânia (GO), não só nos polos de sempre.",
     "Exemplos reais: Central da Visão (cirurgia oftalmológica mais acessível), Trampay, umgrauemeio, naPorta.",
     "Resultado medido: alta de 105% na massa salarial das startups apoiadas — não é só ideia bonita, virou emprego de verdade."
   ]},
-  {cat:"Inovação", texto:"O Brasil ainda inventa alguma coisa, ou só importa tudo?", bullets:[
+  {cat:"Inovação", texto:"O que acontece se eu quiser criar tecnologia brasileira?", bullets:[
     "Nova Indústria Brasil: R$ 220 bilhões já aprovados até meados de 2026, com meta de R$ 300 bilhões até o fim do ano — inovação, digitalização, exportação.",
     "Financiamento a inovação em fármacos praticamente dobrou entre 2023 e 2025 em relação aos seis anos anteriores somados."
   ]},
-  {cat:"Clima", texto:"Vai sobrar planeta pra gente?", bullets:[
+  {cat:"Clima", texto:"O que acontece se a economia for mais sustentável?", bullets:[
     "Fundo Amazônia (gerido pelo BNDES): R$ 2 bilhões aprovados só em 2025.",
     "Resultado concreto: desmatamento caiu mais de 50% desde 2022 — o menor patamar já registrado.",
     "Energia eólica: R$ 1,54 bilhão contratados em 2025, com prazos que passam de 23 anos.",
     "Orçamento do Fundo Clima para 2026 mais que dobrou: de R$ 11,2 bi para R$ 27 bi."
   ]},
-  {cat:"Infraestrutura", texto:"As coisas que eu uso todo dia vieram de onde?", bullets:[
+  {cat:"Infraestrutura", texto:"O que acontece se a infraestrutura chegar pra quem precisa?", bullets:[
     "O BNDES estrutura concessões de rodovias, saneamento, transporte e mobilidade urbana — como a concessão da Nova Dutra, feita sem aumentar gastos públicos.",
     "Municípios que usam financiamento do BNDES para infraestrutura mostram efeito econômico positivo comprovado, comparado aos que não usam."
   ]},
-  {cat:"Apoio e proteção", texto:"Quando dá ruim de verdade, alguém aparece?", bullets:[
+  {cat:"Apoio e proteção", texto:"O que acontece se o Brasil estiver pronto pra qualquer imprevisto?", bullets:[
     "Enchentes do RS (2024): linhas emergenciais, suspensão de parcelas, garantias — cobertura de mais de 53% do público atingido.",
     "Tarifaço dos EUA (2025-2026): crédito emergencial pra quem ficou na mão com o aumento de tarifas — mais de 51 milhões de pessoas impactadas pela comunicação dessas medidas."
   ]},
@@ -547,10 +547,11 @@ const destaques = [
 
 const filtros = ["Tudo","Inovação","Clima","Empregos","Infraestrutura","Cultura"];
 const frasesPlaceholder = [
-  "as cidades brasileiras estivessem prontas pra mudança do clima?",
-  "a cultura brasileira tivesse mais investimento?",
-  "educação pública tivesse mais pesquisa por trás?",
-  "minha cidade tivesse ônibus elétrico?",
+  "eu quiser empreender?",
+  "eu quiser criar tecnologia brasileira?",
+  "a economia for mais sustentável?",
+  "a infraestrutura chegar pra quem precisa?",
+  "a cultura brasileira ganhar o mundo?",
 ];
 
 const ICONS = {
