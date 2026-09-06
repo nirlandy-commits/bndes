@@ -490,8 +490,8 @@ const temas = [
     "Energia eólica: R$ 1,54 bilhão contratados em 2025, com prazos que passam de 23 anos.",
     "Orçamento do Fundo Clima pra 2026 mais que dobrou: de R$ 11,2 bi pra R$ 27 bi."
   ]},
-  {nome:"O que acontece se a infraestrutura chegar pra quem precisa?", tag:"Infraestrutura", bg:"#fff", fg:"var(--azul)", border:"2px solid var(--azul)",
-   icn:'<svg class="icn" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6" stroke="#0530CC" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+  {nome:"O que acontece se a infraestrutura chegar pra quem precisa?", tag:"Infraestrutura", bg:"var(--azul)", fg:"#fff",
+   icn:'<svg class="icn" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>',
    fatos:[
     "O BNDES estrutura concessões de rodovias, saneamento, transporte e mobilidade urbana — como a concessão da Nova Dutra, feita sem aumentar gastos públicos.",
     "Municípios que usam financiamento do BNDES pra infraestrutura mostram efeito econômico positivo comprovado, comparado aos que não usam."
@@ -502,8 +502,8 @@ const temas = [
     "R$ 400 milhões retomados pelo Fundo Setorial do Audiovisual (FSA) pra financiar o cinema brasileiro, depois de anos de programa parado.",
     "Edital de Cinema 2025: R$ 15 milhões pra 25 longas-metragens de produtoras de todas as regiões do país, com estreia prevista até o fim de 2026."
   ]},
-  {nome:"O que acontece se eu quiser empreender?", tag:"Pequenos negócios", bg:"#fff", fg:"var(--laranja-escuro)", border:"2px solid var(--laranja-escuro)",
-   icn:'<svg class="icn" viewBox="0 0 24 24" fill="none"><path d="M3 9l1.5-5h15L21 9M4 9v10h16V9M4 9h16M10 13v3h4v-3" stroke="#EE7526" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+  {nome:"O que acontece se eu quiser empreender?", tag:"Pequenos negócios", bg:"#0E8A6D", fg:"#fff",
+   icn:'<svg class="icn" viewBox="0 0 24 24" fill="none"><path d="M3 9l1.5-5h15L21 9M4 9v10h16V9M4 9h16M10 13v3h4v-3" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>',
    fatos:[
     "Metade de tudo que o BNDES desembolsa hoje vai para micro, pequenas e médias empresas — o tipo de negócio que esse público mais tenta abrir, muitas vezes por necessidade, não só por ambição.",
     "BNDES Garagem: aceleração gratuita de startups de impacto, mais de 300 apoiadas desde 2018, com critério explícito de diversidade regional, racial e de gênero — com seleção acontecendo em Belém (PA) e Goiânia (GO), não só nos polos de sempre.",
@@ -677,26 +677,7 @@ function perguntarDeNovo(){
 }
 
 /* ============ COMPARTILHAMENTO ============ */
-function compartilharNativo(){
-  const texto = document.getElementById('share-text').textContent;
-  if(navigator.share){
-    navigator.share({title:'O que acontece se…', text: texto, url:'https://www.bndes.gov.br/'}).catch(()=>{});
-  } else {
-    document.getElementById('conf-fallback').classList.add('show');
-    copiarLink();
-  }
-}
-function compartilharWhats(){
-  const texto = document.getElementById('share-text').textContent;
-  const url = 'https://wa.me/?text=' + encodeURIComponent('O que acontece se ' + texto + ' 🤔 bndes.gov.br');
-  window.open(url, '_blank');
-}
-function copiarLink(){
-  navigator.clipboard?.writeText('https://www.bndes.gov.br/oqueacontecese');
-  showToast('Link copiado!');
-}
-function baixarImagem(){
-  const texto = document.getElementById('share-text').textContent;
+function gerarCanvasCompartilhamento(texto){
   const canvas = document.createElement('canvas');
   canvas.width = 1080; canvas.height = 1350;
   const ctx = canvas.getContext('2d');
@@ -718,7 +699,41 @@ function baixarImagem(){
   ctx.fillStyle = 'rgba(255,255,255,0.85)';
   ctx.font = '400 26px "Inter Tight", sans-serif';
   ctx.fillText('bndes.gov.br', 80, 1300);
+  return canvas;
+}
 
+async function compartilharNativo(){
+  const texto = document.getElementById('share-text').textContent;
+  const canvas = gerarCanvasCompartilhamento(texto);
+
+  canvas.toBlob(async (blob)=>{
+    const file = new File([blob], 'minha-pergunta-bndes.png', {type:'image/png'});
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      try{
+        await navigator.share({files:[file], title:'O que acontece se…', text: texto});
+        return;
+      }catch(e){ /* usuário cancelou ou falhou, cai no fallback abaixo */ }
+    }
+    if(navigator.share){
+      navigator.share({title:'O que acontece se…', text: texto, url:'https://www.bndes.gov.br/'}).catch(()=>{});
+    } else {
+      document.getElementById('conf-fallback').classList.add('show');
+      copiarLink();
+    }
+  }, 'image/png');
+}
+function compartilharWhats(){
+  const texto = document.getElementById('share-text').textContent;
+  const url = 'https://wa.me/?text=' + encodeURIComponent('O que acontece se ' + texto + ' 🤔 bndes.gov.br');
+  window.open(url, '_blank');
+}
+function copiarLink(){
+  navigator.clipboard?.writeText('https://www.bndes.gov.br/oqueacontecese');
+  showToast('Link copiado!');
+}
+function baixarImagem(){
+  const texto = document.getElementById('share-text').textContent;
+  const canvas = gerarCanvasCompartilhamento(texto);
   const link = document.createElement('a');
   link.download = 'minha-pergunta-bndes.png';
   link.href = canvas.toDataURL('image/png');
